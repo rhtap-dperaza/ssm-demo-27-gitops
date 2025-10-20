@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ssm-demo27-gitops
+  description: This is GitOps manifest for ssm-demo27   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=ssm-demo27
+    backstage.io/kubernetes-id: ssm-demo27 
+    backstage.io/techdocs-ref: dir:.
+    dev.azure.com/project-repo: rhtap-dperaza/ssm-demo-27-gitops
+    dev.azure.com/project: shared-public
+    dev.azure.com/build-definition: rhtap-dperaza.ssm-demo-27-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:ssm-demo27
